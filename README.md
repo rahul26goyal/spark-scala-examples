@@ -1,10 +1,11 @@
 # spark-scala-examples
-Some Fun Learning Spark Application programs written in Scala
+# Some Fun Learning Spark Application programs written in Scala
 
-###`data` directory contains the sample input files for running the programs.
+### This is a `sbt` based project and the dependencies are added in the `build.sbt` file.
+### `data` directory contains the sample input files for running the programs.
+### `src` directory has the code of various application.
 
-
-##How to Run?
+## How to Run?
 * Clone this repo.
 * cd into the folder.
 * sbt
