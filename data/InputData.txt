@@ -1,13 +1,13 @@
 [info] Loading global plugins from /Users/rahulg/.sbt/1.0/plugins
+[info] Loading settings for project spark-scala-examples from build.sbt
 [info] Loading project definition from /Users/rahulg/learning/bigdata/spark/scala/spark-scala-examples/project
-[info] Loading settings for project spark-scala-examples from build.sbt ...
 [info] Set current project to spark-scala-examples (in build file:/Users/rahulg/learning/bigdata/spark/scala/spark-scala-examples/)
 [warn] sbt server could not start because there's another instance of sbt running on this build.
 [warn] Running multiple instances is unsupported
 sbt:spark-scala-examples>
 [info] Defining Global / sbtStructureOptions, Global / sbtStructureOutputFile and 1 others.
 [info] The new values will be used by cleanKeepGlobs
-[info] 	Run `last` for details.
+[info] 	Run las for details.
 [info] Reapplying settings...
 [info] Set current project to spark-scala-examples (in build file:/Users/rahulg/learning/bigdata/spark/scala/spark-scala-examples/)
 [info] Applying State transformations org.jetbrains.sbt.CreateTasks from /Users/rahulg/Library/Application Support/IdeaIC2019.3/Scala/repo/org.jetbrains/sbt-structure-extractor/scala_2.12/sbt_1.0/2018.2.1+4-88400d3f/jars/sbt-structure-extractor.jar
