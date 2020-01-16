@@ -24,6 +24,7 @@ object ReplaceSecretsWords {
     val secret = "secret-token"
     val broadcastVariable = sc.broadcast(secret)
 
+    //try printing the lines containing the secret.
     fileRdd.foreach { line =>
       if (line.contains(broadcastVariable.value)) {
         println(line)
@@ -31,10 +32,8 @@ object ReplaceSecretsWords {
     }
 
     print("Starting map...")
-    //val maskedRdd = fileRdd.map { line => line.replaceAll(secret, "XXXXX")}
     val maskedRdd = fileRdd.map { line => line.replaceAll(broadcastVariable.value, "XXXXX")}
     maskedRdd.foreach {l => println(l)}
+    println("Done..")
   }
-
-
 }

@@ -10,17 +10,19 @@ object WordCount {
   def main(array: Array[String]): Unit = {
     println("This program will calculate the number of words present in a file in different ways.")
 
+    //Running Spark locally
     val master = "local"
     val conf = new SparkConf().setAppName("WordCountExample").setMaster(master)
     val sc  = new SparkContext(conf)
 
     val fileName = "file:/Users/rahulg/learning/bigdata/spark/scala/spark-scala-examples/data/InputData.txt"
 
+    //Transformation 1: to point to input data
     val fileRdd = sc.textFile(fileName)
 
     calculateWordCountInline(fileRdd)
-    //calculateWordCountWithAccumulators(fileRdd, sc)
 
+    //finally stop the SparkDriver.
     sc.stop()
   }
 
@@ -32,6 +34,7 @@ object WordCount {
 
     //create RDD Transformation 1: Create a RDD with split words.
     val wordRdd = fileRdd.flatMap(line => line.split(" "))
+    //to view the result of this transformation, save it to a file.
     wordRdd.saveAsTextFile("file:/Users/rahulg/learning/bigdata/spark/scala/spark-scala-examples/data/tmp/InputDataFlatMappedResult.txt")
 
     //create RDD Transformation 2: create a map of word, frequency.
@@ -42,7 +45,7 @@ object WordCount {
     val result = wordsRdd.reduceByKey((a, b) => a + b)
     result.saveAsTextFile("file:/Users/rahulg/learning/bigdata/spark/scala/spark-scala-examples/data/tmp/InputDataResult.txt")
 
-    //print result:
+    //print results:
     System.out.println("Result  of calculateWordCountInline :")
     result.foreach(line => {
       println(line)

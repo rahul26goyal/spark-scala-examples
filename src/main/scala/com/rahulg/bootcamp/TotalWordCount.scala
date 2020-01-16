@@ -11,11 +11,11 @@ object TotalWordCount {
 
   def main(array: Array[String]): Unit = {
     println("This program will calculate the Total number of words present in a file in different ways.")
-
+    //Running Spark locally
     val master = "local"
     val conf = new SparkConf().setAppName("WordCountExample").setMaster(master)
     val sc  = new SparkContext(conf)
-    //sc.longAccumulator("counter")
+
     val fileName = "file:/Users/rahulg/learning/bigdata/spark/scala/spark-scala-examples/data/InputData.txt"
 
     val fileRdd = sc.textFile(fileName)
@@ -59,7 +59,7 @@ object TotalWordCount {
     //start computation
     fileRdd.foreach { line =>
       val words  = line.split(" ")
-      //update accumulator
+      //update variable
       wordCountAccum += words.length
       println(line + ":" + words.length + ":" + wordCountAccum)
     }
